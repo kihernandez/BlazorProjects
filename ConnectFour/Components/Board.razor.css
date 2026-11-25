@@ -1,0 +1,458 @@
+div {
+    position: relative
+}
+
+nav {
+    top: 4em;
+    width: 30em;
+    display: inline-flex;
+    flex-direction: row;
+    margin-left: 10px
+}
+
+nav span {
+    width: 4em;
+    text-align: center;
+    cursor: pointer;
+    font-size: 1em
+}
+
+div.board {
+    margin-top: 1em;
+    flex-wrap: wrap;
+    width: 30em;
+    height: 24em;
+    overflow: hidden;
+    display: inline-flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    z-index: -5;
+    row-gap: 0;
+    pointer-events: none;
+    border-left: 10px solid var(--board-bg)
+}
+
+span.container {
+    width: 4em;
+    height: 4em;
+    margin: 0;
+    padding: 4px;
+    overflow: hidden;
+    background-color: transparent;
+    position: relative;
+    z-index: -2;
+    pointer-events: none
+}
+
+.container span {
+    width: 3.5em;
+    height: 3.5em;
+    border-radius: 50%;
+    box-shadow: 0 0 0 3em var(--board-bg);
+    left: 0;
+    position: absolute;
+    display: block;
+    z-index: 5;
+    pointer-events: none
+}
+
+.player1,
+.player2 {
+    width: 3.5em;
+    height: 3.5em;
+    border-radius: 50%;
+    left: 0;
+    top: 0;
+    position: absolute;
+    display: block;
+    z-index: -8
+}
+
+.player1 {
+    background-color: var(--player1);
+    animation-timing-function: cubic-bezier(.5, .05, 1, .5);
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    box-shadow: 0 0 0 4px var(--player1)
+}
+
+.player2 {
+    background-color: var(--player2);
+    animation-timing-function: cubic-bezier(.5, .05, 1, .5);
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    box-shadow: 0 0 0 4px var(--player2)
+}
+
+.col0 {
+    left: calc(0em + 9px)
+}
+
+.col1 {
+    left: calc(4em + 9px)
+}
+
+.col2 {
+    left: calc(8em + 9px)
+}
+
+.col3 {
+    left: calc(12em + 9px)
+}
+
+.col4 {
+    left: calc(16em + 9px)
+}
+
+.col5 {
+    left: calc(20em + 9px)
+}
+
+.col6 {
+    left: calc(24em + 9px)
+}
+
+.drop1 {
+    animation-duration: 1s;
+    animation-name: drop1
+}
+
+.drop2 {
+    animation-duration: 1.5s;
+    animation-name: drop2
+}
+
+.drop3 {
+    animation-duration: 1.6s;
+    animation-name: drop3
+}
+
+.drop4 {
+    animation-duration: 1.7s;
+    animation-name: drop4
+}
+
+.drop5 {
+    animation-duration: 1.8s;
+    animation-name: drop5
+}
+
+.drop6 {
+    animation-duration: 1.9s;
+    animation-name: drop6
+}
+
+@keyframes drop1 {
+
+    100%,
+    75%,
+    90%,
+    97% {
+        transform: translateY(1.27em)
+    }
+
+    80% {
+        transform: translateY(.4em)
+    }
+
+    95% {
+        transform: translateY(.8em)
+    }
+
+    99% {
+        transform: translateY(1em)
+    }
+}
+
+@keyframes drop2 {
+
+    100%,
+    75%,
+    90%,
+    97% {
+        transform: translateY(5.27em)
+    }
+
+    80% {
+        transform: translateY(3.8em)
+    }
+
+    95% {
+        transform: translateY(4.6em)
+    }
+
+    99% {
+        transform: translateY(4.9em)
+    }
+}
+
+@keyframes drop3 {
+
+    100%,
+    75%,
+    90%,
+    97% {
+        transform: translateY(9.27em)
+    }
+
+    80% {
+        transform: translateY(7.2em)
+    }
+
+    95% {
+        transform: translateY(8.3em)
+    }
+
+    99% {
+        transform: translateY(8.8em)
+    }
+}
+
+@keyframes drop4 {
+
+    100%,
+    75%,
+    90%,
+    97% {
+        transform: translateY(13.27em)
+    }
+
+    80% {
+        transform: translateY(10.6em)
+    }
+
+    95% {
+        transform: translateY(12em)
+    }
+
+    99% {
+        transform: translateY(12.7em)
+    }
+}
+
+@keyframes drop5 {
+
+    100%,
+    75%,
+    90%,
+    97% {
+        transform: translateY(17.27em)
+    }
+
+    80% {
+        transform: translateY(14em)
+    }
+
+    95% {
+        transform: translateY(15.7em)
+    }
+
+    99% {
+        transform: translateY(16.5em)
+    }
+}
+
+@keyframes drop6 {
+
+    100%,
+    75%,
+    90%,
+    97% {
+        transform: translateY(21.27em)
+    }
+
+    80% {
+        transform: translateY(17.4em)
+    }
+
+    95% {
+        transform: translateY(19.4em)
+    }
+
+    99% {
+        transform: translateY(20.4em)
+    }
+}
+
+
+/* Consecutive wins scoreboard */
+.streak-board {
+    display: flex;
+    gap: 15px;
+    width: 30em;
+    margin: 25px 0 20px 10px;
+}
+
+.streak-card {
+    flex: 1;
+    padding: 18px 12px;
+    text-align: center;
+    border-radius: 12px;
+    background-color: #f0f0f0;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.streak-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.18);
+}
+
+.streak-card h3 {
+    margin: 0;
+    font-size: 1.1em;
+}
+
+.streak-card p {
+    font-size: 2.8em;
+    font-weight: bold;
+    margin: 8px 0;
+}
+
+.streak-card span {
+    font-size: 0.85em;
+    color: #555;
+}
+
+.player1-streak {
+    border-top: 5px solid var(--player1);
+}
+
+.player2-streak {
+    border-top: 5px solid var(--player2);
+}
+
+/* Smaller screens */
+@media (max-width: 550px) {
+    .streak-board {
+        width: calc(100% - 20px);
+        gap: 10px;
+        margin-left: 10px;
+    }
+
+    .streak-card {
+        padding: 14px 8px;
+    }
+
+    .streak-card p {
+        font-size: 2.2em;
+    }
+}
+
+
+/* New Game button */
+article button {
+    margin-top: 25px;
+    margin-left: 10px;
+    padding: 12px 28px;
+    border: none;
+    border-radius: 8px;
+    background-color: #2563eb;
+    color: white;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease,
+                transform 0.2s ease,
+                box-shadow 0.2s ease;
+}
+
+article button:hover {
+    background-color: #1d4ed8;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+article button:active {
+    transform: translateY(0);
+}
+
+article button:focus-visible {
+    outline: 3px solid #93c5fd;
+    outline-offset: 3px;
+}
+
+
+/* Game control buttons */
+.game-controls {
+    margin-top: 25px;
+    margin-left: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+}
+
+/* New Game */
+.new-game-button {
+    padding: 12px 28px;
+    border: none;
+    border-radius: 8px;
+    background-color: #2563eb;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.new-game-button:hover {
+    background-color: #1d4ed8;
+}
+
+/* Reset Everything */
+.reset-everything-button {
+    padding: 12px 28px;
+    border: none;
+    border-radius: 8px;
+    background-color: #dc2626;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.reset-everything-button:hover {
+    background-color: #b91c1c;
+}
+
+/* Confirmation area */
+.reset-confirmation {
+    flex-basis: 100%;
+    max-width: 30em;
+    margin-top: 10px;
+    padding: 15px;
+    border: 1px solid #dc2626;
+    border-radius: 8px;
+    background-color: #fef2f2;
+    color: #7f1d1d;
+}
+
+.reset-confirmation p {
+    margin-top: 0;
+}
+
+/* Confirmation buttons */
+.confirm-reset-button,
+.cancel-reset-button {
+    padding: 10px 16px;
+    margin: 5px 5px 0 0;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.confirm-reset-button {
+    background-color: #dc2626;
+}
+
+.cancel-reset-button {
+    background-color: #64748b;
+}
+
+.confirm-reset-button:hover {
+    background-color: #b91c1c;
+}
+
+.cancel-reset-button:hover {
+    background-color: #475569;
+}
